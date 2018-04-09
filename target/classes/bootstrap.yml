@@ -1,0 +1,12 @@
+---
+spring:
+  application:
+    name: app
+  profiles:
+      active: prod
+  cloud:
+    config:
+      enabled: true
+      uri: ${configserver.url:http://localhost:8888}
+
+

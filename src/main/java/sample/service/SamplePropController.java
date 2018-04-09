@@ -1,0 +1,17 @@
+package sample.service;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RefreshScope
+public class SamplePropController {
+
+    @RequestMapping("/foo")
+    public String getFoo(@Value("${foo:notfound}") String foo) { return foo; }
+
+    @RequestMapping("/bar")
+    public String getBar(@Value("${bar:notfound}") String bar) { return bar; }
+}
